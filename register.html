@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Реєстрація - Team Website</title>
+  <link rel="stylesheet" href="auth.css">
+  <link rel="stylesheet" href="home.css">
+</head>
+<body>
+  <div class="auth-container">
+    <div class="auth-box">
+      <h1>Реєстрація</h1>
+      <form id="registerForm">
+        <div class="form-group">
+          <label for="username">Ім'я користувача:</label>
+          <input type="text" id="username" required minlength="3" maxlength="20">
+          <span class="error-message"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="email" id="email" required>
+          <span class="error-message"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="password">Пароль:</label>
+          <input type="password" id="password" required minlength="6">
+          <span class="error-message"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="confirmPassword">Підтвердіть пароль:</label>
+          <input type="password" id="confirmPassword" required>
+          <span class="error-message"></span>
+        </div>
+
+        <button type="submit" class="btn-primary">Зареєструватися</button>
+        <div id="formMessage" class="form-message"></div>
+      </form>
+
+      <p class="auth-link">
+        Вже є акаунт? <a href="login.html">Увійти</a>
+      </p>
+      <section class="back-home" style="margin-top: 20px;">
+            <a href="index.html" class="btn the_third">Повернутися на головну</a>
+        </section>
+    </div>
+  </div>
+  <script src="auth.js"></script>
+    <footer>
+    <p>© 2025 SmileCare. Усі права захищено.</p>
+    </footer>
+</body>
+</html>
