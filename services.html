@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Послуги — SmileCare</title>
+    <link rel="stylesheet" href="home.css">
+    <style>
+        main {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .service-header h2 {
+            text-align: center;
+            color: #0ea5e9;
+            margin-bottom: 20px;
+        }
+        .service-card {
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 1px 6px rgba(0,0,0,0.05);
+        }
+        .service-card h3 {
+            color: #0ea5e9;
+            margin-bottom: 10px;
+        }
+        .service-card p {
+            font-size: 1rem;
+            line-height: 1.5;
+            margin-bottom: 10px;
+        }
+        .service-card ul {
+            list-style: disc inside;
+            margin-bottom: 10px;
+        }
+        .service-card ul li {
+            margin-bottom: 5px;
+        }
+        .service-price {
+            font-weight: bold;
+            color: #0ea5e9;
+            margin-bottom: 10px;
+        }
+        .btn {
+            background: #0ea5e9;
+            color: white;
+            border: none;
+            padding: 10px 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .btn:hover {
+            background: #0ca4db;
+        }
+        footer {
+            background: #0ea5e9;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            margin-top: 40px;
+        }
+        header {
+            background-color: #0ea5e9;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+        nav ul.nav-menu {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            padding: 0;
+            margin-top: 10px;
+        }
+        nav ul.nav-menu li {
+            margin: 0 15px;
+        }
+        nav ul.nav-menu li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        nav ul.nav-menu li a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>SmileCare — Наші Послуги</h1>
+        <nav>
+            <ul class="nav-menu">
+                <li><a href="index.html">Головна</a></li>
+                <li><a href="services.html" class="active">Послуги</a></li>
+                <li><a href="about.html">Про нас</a></li>
+                <li><a href="contact.html">Контакти</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="service-header">
+            <h2>Стоматологічні послуги SmileCare</h2>
+            <p>Ми пропонуємо комплексний догляд за вашими зубами та ясенами, використовуючи сучасні технології та безпечні методи лікування. Оберіть послугу, яка вам підходить, і запишіться прямо зараз!</p>
+        </section>
+
+        <section class="service-card">
+            <h3>Професійне чищення зубів</h3>
+            <p>Видаляємо зубний наліт та камінь, поліруємо зуби, застосовуємо фторування для зміцнення емалі. Залишайте усмішку здоровою та сяючою.</p>
+            <ul>
+                <li>Огляд стоматолога</li>
+                <li>Ультразвукове чищення</li>
+                <li>Полірування та фторування</li>
+                <li>Консультації по догляду вдома</li>
+            </ul>
+            <p class="service-price">Ціна: 800 грн</p>
+            <a href="record.html" class="btn">Записатися на послугу</a>
+        </section>
+
+        <section class="service-card">
+            <h3>Відбілювання зубів</h3>
+            <p>Безпечне професійне відбілювання для сяючої усмішки. Наші методи не шкодять емалі та забезпечують тривалий ефект.</p>
+            <ul>
+                <li>Консультація стоматолога</li>
+                <li>Професійне відбілювання</li>
+                <li>Рекомендації для підтримки білосніжного ефекту</li>
+            </ul>
+            <p class="service-price">Ціна: від 1500 грн</p>
+            <a href="record.html" class="btn">Записатися на послугу</a>
+        </section>
+
+        <section class="service-card">
+            <h3>Огляд та консультація стоматолога</h3>
+            <p>Повний огляд ротової порожнини, виявлення проблем на ранніх стадіях та професійна консультація для вибору лікування.</p>
+            <ul>
+                <li>Огляд зубів та ясен</li>
+                <li>Рентген (за потребою)</li>
+                <li>Індивідуальні рекомендації по догляду</li>
+            </ul>
+            <p class="service-price">Ціна: 400 грн</p>
+            <a href="record.html" class="btn">Записатися на послугу</a>
+        </section>
+
+        <section class="service-card">
+            <h3>Пломбування зубів</h3>
+            <p>Якісне лікування карієсу з використанням сучасних матеріалів, що забезпечують довговічність та естетику пломби.</p>
+            <ul>
+                <li>Лікування карієсу</li>
+                <li>Сучасні пломбувальні матеріали</li>
+                <li>Контроль прикусу та естетичний результат</li>
+            </ul>
+            <p class="service-price">Ціна: від 600 грн</p>
+            <a href="record.html" class="btn">Записатися на послугу</a>
+        </section>
+
+        <section class="service-card">
+            <h3>Лікування ясен</h3>
+            <p>Професійне лікування та профілактика захворювань ясен для запобігання пародонтиту та інших проблем.</p>
+            <ul>
+                <li>Огляд ясен</li>
+                <li>Професійна чистка пародонтальних кишень</li>
+                <li>Індивідуальні рекомендації по догляду</li>
+            </ul>
+            <p class="service-price">Ціна: від 700 грн</p>
+            <a href="record.html" class="btn">Записатися на послугу</a>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2025 SmileCare. Усі права захищено.</p>
+    </footer>
+</body>
+</html>

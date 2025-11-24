@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Запис на послугу — SmileCare</title>
+    <link rel="stylesheet" href="home.css">
+    <style>
+        main {
+            max-width: 600px;
+            margin: 40px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .service-form h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #0ea5e9;
+        }
+        label {
+            display: block;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        textarea {
+            resize: vertical;
+        }
+        button {
+            background: #0ea5e9;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            margin-top: 20px;
+            width: 100%;
+        }
+        button:hover {
+            background: #0ca4db;
+        }
+        #status {
+            margin-top: 15px;
+            color: green;
+            text-align: center;
+            font-weight: bold;
+        }
+        .back-home {
+            text-align: center;
+            margin-top: 20px;
+            color: #0ea5e9;
+        }
+        footer {
+            background: #0ea5e9;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            margin-top: 40px;
+        }
+        header {
+            background-color: #0ea5e9;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+        nav ul.nav-menu {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            padding: 0;
+            margin-top: 10px;
+        }
+        nav ul.nav-menu li {
+            margin: 0 15px;
+        }
+        nav ul.nav-menu li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        nav ul.nav-menu li a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>SmileCare — Запис на послугу</h1>
+        <nav>
+            <ul class="nav-menu">
+                <li><a href="index.html">Головна</a></li>
+                <li><a href="services.html">Послуги</a></li>
+                <li><a href="about.html">Про нас</a></li>
+                <li><a href="contact.html">Контакти</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="service-form">
+            <h2>Запис на послугу</h2>
+            <form id="serviceForm">
+                <label for="name">Ім’я:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="service">Обрати послугу:</label>
+                <select id="service" name="service" required>
+                    <option value="">-- Виберіть послугу --</option>
+                    <option value="Професійне чищення зубів">Професійне чищення зубів</option>
+                    <option value="Відбілювання зубів">Відбілювання зубів</option>
+                    <option value="Огляд стоматолога">Огляд стоматолога</option>
+                </select>
+
+                <label for="date">Обрати дату:</label>
+                <input type="date" id="date" name="date" required min="<?php echo date('Y-m-d'); ?>">
+
+                <label for="time">Обрати час:</label>
+                <select id="time" name="time" required>
+                    <option value="">-- Виберіть час --</option>
+                    <option value="09:00">09:00</option>
+                    <option value="10:00">10:00</option>
+                    <option value="11:00">11:00</option>
+                    <option value="12:00">12:00</option>
+                    <option value="13:00">13:00</option>
+                    <option value="14:00">14:00</option>
+                    <option value="15:00">15:00</option>
+                    <option value="16:00">16:00</option>
+                </select>
+
+                <label for="message">Додаткове повідомлення (за бажанням):</label>
+                <textarea id="message" name="message" rows="4"></textarea>
+
+                <button type="submit">Записатися</button>
+            </form>
+            <p id="status"></p>
+        </section>
+
+        <section class="back-home">
+            <a href="index.html" class="btn">Повернутися на головну</a>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2025 SmileCare. Усі права захищено.</p>
+    </footer>
+
+    <script>
+        const today = new Date().toISOString().split('T')[0];
+        document.getElementById("date").setAttribute('min', today);
+
+        document.getElementById("serviceForm").addEventListener("submit", function(e) {
+            e.preventDefault();
+
+            const name = document.getElementById("name").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const service = document.getElementById("service").value;
+            const date = document.getElementById("date").value;
+            const time = document.getElementById("time").value;
+            const message = document.getElementById("message").value.trim();
+
+            if (!name || !email || !service || !date || !time) {
+                document.getElementById("status").innerText = "Будь ласка, заповніть всі обов'язкові поля.";
+                return;
+            }
+
+            let appointments = JSON.parse(localStorage.getItem("appointments")) || [];
+            appointments.push({ name, email, service, date, time, message });
+            localStorage.setItem("appointments", JSON.stringify(appointments));
+
+            document.getElementById("serviceForm").style.display = "none";
+
+            document.getElementById("status").innerText = `Ви успішно записані на послугу "${service}" на ${date} о ${time}.`;
+        });
+    </script>
+</body>
+</html>
